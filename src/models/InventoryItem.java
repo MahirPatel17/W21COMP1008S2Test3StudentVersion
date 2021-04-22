@@ -63,6 +63,7 @@ public abstract class InventoryItem {
 
     public double getProfit()
     {
-        return -1;
+        double profit = (sellingPrice - purchasePrice) * quantitySold;
+        return profit;
     }
 }
