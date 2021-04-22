@@ -5,6 +5,11 @@ package models;
 
 import Utilities.DBUtility;
 
+import java.util.List;
+
+import static Utilities.DBUtility.getSkiBrands;
+import static Utilities.DBUtility.tennisRacquetModelsByBrand;
+
 public class Skis extends InventoryItem{
     private String brand, model;
     private int length;
@@ -21,6 +26,11 @@ public class Skis extends InventoryItem{
     }
 
     public void setBrand(String brand) {
+        List<String> brands = getSkiBrands();
+        if(brands.contains(brand))
+            this.brand = brand;
+        else
+            throw new IllegalArgumentException("Brands are not in the list");
     }
 
     public String getModel() {
