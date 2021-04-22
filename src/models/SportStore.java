@@ -35,6 +35,7 @@ public class SportStore {
         item.setQuantitySold(quantitySold);
     }
 
+    //calculated the total profit
     public double calculateProfit()
     {
         double profit = 0;
