@@ -8,8 +8,7 @@ import Utilities.DBUtility;
 import java.util.List;
 import java.util.Locale;
 
-import static Utilities.DBUtility.getTennisRacquetHeadSizes;
-import static Utilities.DBUtility.tennisEquipmentBrands;
+import static Utilities.DBUtility.*;
 
 public class TennisRacquet extends InventoryItem  {
     private double weight;  //240-310
@@ -71,5 +70,10 @@ public class TennisRacquet extends InventoryItem  {
     }
 
     public void setModel(String model) {
+        List<String> models = tennisRacquetModelsByBrand(model);
+        if(models.contains(model))
+            this.model = model;
+        else
+            throw new IllegalArgumentException("Models are not in the list");
     }
 }
